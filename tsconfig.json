@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "jsxFactory": "createElement",
+    "moduleResolution": "node",
+    "lib": ["dom", "es2018"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*", "framework/types/*"]
+    }
+  },
+  "include": ["app.tsx", "framework/types/**/*"],
+  "references": [
+    { "path": "./framework" }
+  ]
+}
