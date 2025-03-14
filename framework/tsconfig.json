@@ -19,7 +19,7 @@
   },
   "include": [
     "./**/*",
-    "../app.tsx"
+    "../**/*"
   ],
   "exclude": ["node_modules", "dist"]
 }

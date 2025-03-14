@@ -13,11 +13,17 @@
     "moduleResolution": "node",
     "lib": ["dom", "es2018"],
     "baseUrl": ".",
+    "typeRoots": ["./framework/types", "./node_modules/@types"],
+    "types": [],
     "paths": {
       "*": ["*", "framework/types/*"]
     }
   },
-  "include": ["app.tsx", "framework/types/**/*"],
+  "include": [
+    "./**/*",
+    "framework/types/**/*"
+  ],
+  "exclude": ["node_modules", "dist"],
   "references": [
     { "path": "./framework" }
   ]

@@ -23,7 +23,14 @@ module.exports = (env, argv) => {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
         'framework/jsx': path.resolve(__dirname, 'jsx.ts')
-      }
+      },
+      // fallback: {
+      //   "crypto": require.resolve("crypto-browserify"),
+      //   "stream": require.resolve("stream-browserify"),
+      //   "util": require.resolve("util/"),
+      //   "buffer": require.resolve("buffer/"),
+      //   "vm": require.resolve("vm-browserify")
+      // }
     },
     module: {
       rules: [
