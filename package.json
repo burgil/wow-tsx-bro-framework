@@ -4,15 +4,14 @@
   "description": "A simple framework for parsing TSX files",
   "main": "app.tsx",
   "scripts": {
-    "start": "node framework/server.js",
+    "start": "node framework/dev.js",
+    "dev": "node framework/dev.js",
+    "server": "echo todo",
     "build": "node framework/build.js",
-    "dev": "node framework/dev.js"
+    "prod": "node framework/prod.js"
   },
   "devDependencies": {
-    "typescript": "^4.9.5",
-    "ts-loader": "^9.4.3",
-    "webpack": "^5.88.0",
-    "webpack-hot-middleware": "^2.25.4",
-    "webpack-dev-middleware": "^6.1.1"
+    "ts-loader": "^9.5.2",
+    "webpack-hot-middleware": "^2.26.1"
   }
 }

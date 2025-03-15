@@ -6,12 +6,12 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "node_modules": true,
-        "framework": true,
+        "framework": false,
         "dist": true,
         "package-lock.json": true,
         ".vscode": true,
         ".gitignore": true,
-        "tsconfig.json": true,
+        "tsconfig.json": false,
         "README.md": true,
-    }
+    },
 }

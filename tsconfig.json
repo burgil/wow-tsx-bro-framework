@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
     "outDir": "./dist",
     "rootDir": ".",
     "strict": true,
@@ -11,7 +11,7 @@
     "jsx": "react",
     "jsxFactory": "createElement",
     "moduleResolution": "node",
-    "lib": ["dom", "es2018"],
+    "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "typeRoots": ["./framework/types", "./node_modules/@types"],
     "types": [],

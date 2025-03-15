@@ -1,7 +1,5 @@
 import createElement from './framework/runtime';
-import clearTimers from './framework/timers';
 import Blah from './Blah';
-clearTimers();
 
 export default function App() {
   let counter = 0;
@@ -19,9 +17,7 @@ export default function App() {
       </head>
       <body>
         <h1 id="test">{counter}</h1>
-        <textarea rows="6" type="text" style="width: 100%;">
-          <Blah />
-        </textarea>
+        <Blah />
       </body>
     </html>
   );
