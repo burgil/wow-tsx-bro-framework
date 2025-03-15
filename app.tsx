@@ -21,6 +21,27 @@ export default function App() {
   function handleDarkMode() {
     document.documentElement.classList.toggle('dark-mode');
   }
+
+  window.addEventListener('load', function() {
+    console.log("Loading snippet...")
+    const snippet = document.getElementById('snippet');
+    if (snippet) snippet.textContent = `export default function App() {
+    let counter = 0;
+    
+    // Timers automatically reset on HMR
+    setInterval(() => {
+      counter += 1;
+      document.getElementById('counter').textContent = counter;
+    }, 1000);
+    
+    return (
+      <div>
+        <h1>Counter: <span id="counter">{counter}</span></h1>
+        <button onclick="alert('Hello!')">Say Hello</button>
+      </div>
+    );
+  }`
+  });
   
   return (
     <html lang="he" className="scroll-smooth">
@@ -135,24 +156,7 @@ export default function App() {
             {/* Code sample */}
             <div className="code-sample bg-gray-800 p-6 rounded-lg overflow-auto mb-8">
               <div className="text-green-400">// SimpleFramework in action</div>
-              <pre className="text-gray-300">
-{`export default function App() {
-  let counter = 0;
-  
-  // Timers automatically reset on HMR
-  setInterval(() => {
-    counter += 1;
-    document.getElementById('counter').textContent = counter;
-  }, 1000);
-  
-  return (
-    <div>
-      <h1>Counter: <span id="counter">{counter}</span></h1>
-      <button onclick="alert('Hello!')">Say Hello</button>
-    </div>
-  );
-}`}
-              </pre>
+              <pre className="text-gray-300" id="snippet"></pre>
             </div>
 
             {/* How it works */}
