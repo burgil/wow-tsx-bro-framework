@@ -1,4 +1,3 @@
-import createElement from './framework/runtime';
 import Blah from './Blah';
 
 export default function App() {
