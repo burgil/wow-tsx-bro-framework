@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     mode: isDevelopment ? 'development' : 'production',
     entry: [
       isDevelopment && 'webpack-hot-middleware/client?reload=true',
-      path.resolve(__dirname, 'entry.ts')
+      path.resolve(__dirname, 'browser-side', 'entry.ts')
     ].filter(Boolean),
     output: {
       path: path.resolve(rootDir, 'dist'),
@@ -50,7 +50,7 @@ module.exports = (env, argv) => {
     plugins: [
       isDevelopment && new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'template.html'),
+        template: path.resolve(__dirname, 'browser-side', 'template.html'),
         inject: true
       })
     ].filter(Boolean),

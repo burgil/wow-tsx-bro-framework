@@ -4,11 +4,11 @@
   "description": "A simple framework for parsing TSX files",
   "main": "app.tsx",
   "scripts": {
-    "start": "node framework/dev.js",
-    "dev": "node framework/dev.js",
+    "start": "node framework/scripts/dev",
+    "dev": "node framework/scripts/dev",
     "server": "echo todo",
-    "build": "node framework/build.js",
-    "prod": "node framework/prod.js"
+    "build": "node framework/scripts/build",
+    "prod": "node framework/scripts/prod"
   },
   "devDependencies": {
     "ts-loader": "^9.5.2",
