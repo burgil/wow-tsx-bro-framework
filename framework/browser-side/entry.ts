@@ -26,7 +26,58 @@ globalThis.createElement = function createElement(tag: string | Function, props:
 
 async function render() {
     const { default: App } = await import('../../app');
-    document.body.innerHTML = App();
+    const appOutput = App();
+    
+    // Extract parts using regex
+    const htmlMatch = appOutput.match(/<html([^>]*)>([\s\S]*)<\/html>/);
+    
+    if (htmlMatch) {
+        const htmlAttrs = htmlMatch[1];
+        const htmlContent = htmlMatch[2];
+        
+        // Extract head and body
+        const headMatch = htmlContent.match(/<head>([\s\S]*)<\/head>/);
+        const bodyMatch = htmlContent.match(/<body([^>]*)>([\s\S]*)<\/body>/);
+        
+        if (headMatch && bodyMatch) {
+            // Apply HTML attributes
+            const htmlAttrPairs = htmlAttrs.match(/(\w+)="([^"]*)"/g);
+            if (htmlAttrPairs) {
+                htmlAttrPairs.forEach((attr: string) => {
+                    const [attrName, attrValue] = attr.split('=');
+                    document.documentElement.setAttribute(
+                        attrName, 
+                        attrValue.replace(/"/g, '')
+                    );
+                });
+            }
+            
+            // Apply body attributes
+            const bodyAttrs = bodyMatch[1];
+            const bodyAttrPairs = bodyAttrs.match(/(\w+)="([^"]*)"/g);
+            if (bodyAttrPairs) {
+                bodyAttrPairs.forEach((attr: string) => {
+                    const [attrName, attrValue] = attr.split('=');
+                    document.body.setAttribute(
+                        attrName, 
+                        attrValue.replace(/"/g, '')
+                    );
+                });
+            }
+            
+            // Set head content
+            document.head.innerHTML = headMatch[1];
+            
+            // Set body content
+            document.body.innerHTML = bodyMatch[2];
+        } else {
+            console.error("Couldn't parse head or body from App output");
+            document.body.innerHTML = appOutput;
+        }
+    } else {
+        console.error("App output doesn't contain proper HTML structure");
+        document.body.innerHTML = appOutput;
+    }
 }
 render();
 if (module.hot) {

@@ -5,7 +5,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const path = require('path');
 const webpackConfig = require('../webpack.config');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 2222;
 const config = webpackConfig({}, { mode: 'development' });
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
